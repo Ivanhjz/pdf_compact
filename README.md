@@ -4,7 +4,7 @@
 
 A small tool that compacts PDFs with excessive whitespace (e.g. one question per page) into a dense, multi-item layout — while keeping math formulas and vector graphics fully intact.
 
-## ✨ 特点 / Features
+## 特点 / Features
 
 - **不依赖 OCR，纯几何裁剪 + 重排**：不会把公式、符号识别成文字再重建，因此数学公式、上下标、根号等内容保持原始矢量清晰度，不会乱码、不会失真。
 - **智能去空白**：不仅去掉页面底部的大片留白，页面内部（比如题目和选项之间）异常大的间距也会被自动压缩，正常的行间距则保持不变。
@@ -13,7 +13,7 @@ A small tool that compacts PDFs with excessive whitespace (e.g. one question per
 
 No OCR involved — pages are only rendered to images for whitespace *detection*; the actual content is clipped from the original vector PDF, so formulas and graphics stay crisp.
 
-## 📦 安装 / Installation
+## 安装 / Installation
 
 需要 Python 3.9 及以上版本。
 
@@ -23,7 +23,7 @@ pip install pymupdf numpy
 
 （如果 `pip` 命令不认，可以试试 `pip3` 或 `python3 -m pip install pymupdf numpy`）
 
-## 🚀 使用方法 / Usage
+## 使用方法 / Usage
 
 **处理单个文件：**
 
@@ -37,7 +37,7 @@ python3 compact_pdf.py input.pdf output.pdf
 python3 compact_pdf.py 输入文件夹/ 输出文件夹/
 ```
 
-## ⚙️ 可选参数 / Options
+## 可选参数 / Options
 
 | 参数 | 默认值 | 说明 |
 |---|---|---|
@@ -61,13 +61,13 @@ python3 compact_pdf.py input.pdf output.pdf --gap 20 --squeeze-threshold 30
 python3 compact_pdf.py --help
 ```
 
-## 🔍 工作原理 / How it works
+## 工作原理 / How it works
 
 1. 把每一页渲染成灰度图片，通过像素分析找到内容所在的行区间（哪些行有墨迹）。
 2. 检测页面内部"异常大"的空白间隔（比如题目和下方大片留白之间），把这段间隔压缩到一个较小的固定值；正常的段内行距不受影响。
 3. 对内容区域做**矢量裁剪**（PDF clip 机制，非转图片再裁剪），文字、公式、线条保持原始清晰度。
 4. 把处理后的各题依次从上到下摆放到新页面上，排满自动换页。
 
-## 📄 License
+## License
 
 MIT
