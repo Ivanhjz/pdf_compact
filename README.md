@@ -4,6 +4,10 @@
 
 A small tool that compacts PDFs with excessive whitespace (e.g. one question per page) into a dense, multi-item layout — while keeping math formulas and vector graphics fully intact.
 
+## 可以直接下载APP
+
+如果你不想在terminal里自己建运行环境，也不想自己打包，可以去release页面下载Mac App双击版，只需要下载app，双击，即可打开一个图形界面，使用这个功能。
+
 ## 特点 / Features
 
 - **不依赖 OCR，纯几何裁剪 + 重排**：不会把公式、符号识别成文字再重建，因此数学公式、上下标、根号等内容保持原始矢量清晰度，不会乱码、不会失真。
